@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard ติดตามการใชจ่ายงบประมาณ </title>
+    <title>Dashboard ติดตามการใช้จ่ายและงบประมาณ </title>
     
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -176,7 +176,7 @@
 
     <script>
         // ========================================================
-        const API_URL = "https://script.google.com/macros/s/AKfycbyYKfiuA4zbCdhec_1Fymt4kxuXUk53T1H_dUpiYaYzCNk5TjkOJM0PGhA3tsQMvN5C/exec"; 
+        const API_URL = "https://script.google.com/macros/s/AKfycbyD1YYLLuirVUxPbYm44f-nXGn8u9qnpQcrj-Un6GgHd_E3nFFXLDyWNoaqNERaHwYiYw/exec"; 
         // ========================================================
 
         let ceoData = [];
@@ -213,7 +213,7 @@
             
             const now = new Date();
             document.getElementById('report-date').textContent = now.toLocaleDateString('th-TH', { 
-                year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute:'2-digit',
+                year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute:'2-digit'
             }) + " น.";
         }
 
@@ -278,10 +278,10 @@
 
         function renderSummary(data) {
             const cards = [
-                { title: "งบประมาณตามแผน", amount: data.totalBudget, icon: "wallet", theme: "bg-gradient-to-br from-blue-500 to-blue-700" },
-                { title: "ได้รับจัดสรร", amount: data.totalAllocated, icon: "arrow-down-to-line", theme: "bg-gradient-to-br from-indigo-500 to-purple-700" },
-                { title: "เบิกจ่ายแล้ว", amount: data.totalSpent, icon: "trending-up", theme: "bg-gradient-to-br from-emerald-400 to-teal-600" },
-                { title: "งบประมาณคงเหลือ", amount: data.totalRemaining, icon: "piggy-bank", theme: "bg-gradient-to-br from-amber-400 to-orange-500" }
+                { title: "งบประมาณ", amount: data.totalBudget, icon: "wallet", theme: "bg-gradient-to-br from-blue-500 to-blue-700" },
+                { title: "จัดสรร", amount: data.totalAllocated, icon: "arrow-down-to-line", theme: "bg-gradient-to-br from-indigo-500 to-purple-700" },
+                { title: "ตัดจ่าย", amount: data.totalSpent, icon: "trending-up", theme: "bg-gradient-to-br from-emerald-400 to-teal-600" },
+                { title: "คงเหลือ", amount: data.totalRemaining, icon: "piggy-bank", theme: "bg-gradient-to-br from-amber-400 to-orange-500" }
             ];
 
             document.getElementById('summary-cards').innerHTML = cards.map(c => `
